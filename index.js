@@ -1,13 +1,38 @@
-const express = require('express')
-const PORT = process.env.PORT || 3000;
+const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 3000;
 require('dotenv').config();
+const helmet = require('helmet');
+const cors = require('cors');
+
+const isProduction = process.env.NODE_ENV === 'production';
+
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(cors(origin = {origin:isProduction ? process.env.HEROKU_URL : process.env.CLIENT_URL, credentials: true }));
+app.use(helmet());
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "client/build")))
+       
+    }
+    // app.get('*',(req, res) =>{
+    //     res.sendFile(path.join(__dirname,"client/build/index.html"));
+    // })
 
 app.get('/',(req, res) =>{
     res.send("Hello There!")
 })
 
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
+const appStart = () => {
+    try{
+    app.listen(PORT, () =>{
+        console.log(`The app is listening on ${PORT}`)
+    })
+        } catch (error) {
+    console.log(`Error: ${error.message}`)
+    } 
+}
+
+appStart();
