@@ -4,6 +4,8 @@ require('dotenv').config();
 const helmet = require('helmet');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const path = require('path');
+
 
 const isProduction = process.env.NODE_ENV === 'production';
 const PORT = process.env.PORT || 3000;
