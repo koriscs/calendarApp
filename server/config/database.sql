@@ -1,5 +1,8 @@
 CREATE TABLE IF NOT EXISTS "calendar" (
- "date" VARCHAR UNIQUE,
+ "month" VARCHAR,
+ "day" VARCHAR,
+ "year" VARCHAR,
+ "hour" VARCHAR,
  "name" VARCHAR,
  "time" TIMESTAMP
 );
