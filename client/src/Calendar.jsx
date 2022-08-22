@@ -3,8 +3,10 @@ import Calendar from 'react-calendar';
 import './App.css';
 import Time from './Time.jsx'
 import {fetchAppointments} from './features/calendarSlice'
-import { getMonth } from './utils/utils'
+import { getMonth, isSameDay } from './utils/utils'
 import { useDispatch } from 'react-redux'
+
+const disabledDates = ["Oct 31 2022","Nov 01 2022","Dec 26 2022"]
 
 function CalendarApp() {
  const [date, setDate] = useState(new Date())
@@ -12,6 +14,14 @@ function CalendarApp() {
  const disptach = useDispatch();
  let month = getMonth(date);
 
+
+ function tileDisabled({ date, view }) {
+  // Disable tiles in month view only
+  if (view === 'month') {
+    // Check if a date React-Calendar wants to check is on the list of disabled dates
+    return disabledDates.find(dDate => isSameDay(dDate, date)) || (view === "month" && date.getDay() === 0 || date.getDay() === 6);
+  }
+}
 
  useEffect(()=>{
     
@@ -22,9 +32,7 @@ return (
  <div className="app">
    <div className="calendar-container">
      <Calendar 
-     tileDisabled={({ date, view }) =>
-          (view === "month" && date.getDay() === 0) || date.getDay() === 6
-        }
+     tileDisabled={tileDisabled}
         showNeighboringMonth={false} 
         locale='hu-HU' 
         onChange={setDate} 
@@ -54,3 +62,6 @@ return (
 }
 
 export default CalendarApp;
+
+// { date, view }) =>
+// (view === "month" && date.getDay() === 0 || date.getDay() === 6)

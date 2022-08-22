@@ -1,3 +1,5 @@
+import { differenceInCalendarDays, parseISO } from 'date-fns';
+
 export const getMonth = date => {
     const monthName = date.toDateString().split(' ');
 
@@ -13,3 +15,7 @@ export const getYear = date => {
 
     return monthName[3];
 }
+
+export function isSameDay(a, b) {
+    return differenceInCalendarDays(new Date(a), new Date(b)) === 0;
+  }

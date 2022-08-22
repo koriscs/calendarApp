@@ -16,6 +16,14 @@ app.use(cookieParser());
 app.use(cors(origin = {origin:isProduction ? process.env.HEROKU_URL : process.env.CLIENT_URL, credentials: true }));
 app.options('*', cors(origin));
 app.use(helmet());
+app.use(
+       helmet.contentSecurityPolicy({
+         useDefaults: true,
+         directives: {
+            imgSrc: ["'self'", "https://i.ibb.co" ],
+         }
+       })
+     )
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "client/build")))

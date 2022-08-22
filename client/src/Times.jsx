@@ -8,19 +8,21 @@ import { getDay, getMonth, getYear } from './utils/utils';
 
 const time = ['08:00','09:00','10:00','14:00','15:00']
 
-function Times(props) {
+function Times({date}) {
 
  const [event, setEvent] = useState(null)
  const [isOpen, setIsOpen] = useState(false)
  const appointments = useSelector(selectAppointments);
 
  function filterTimes(time,date,appointments) {
-    const day = getDay(date.date)
-    const year = getYear(date.date)
-    const month = getMonth(date.date)
-    
+  
+    const day = getDay(date)
+    const year = getYear(date)
+    const month = getMonth(date)
+  if (appointments) {
     const result = appointments.every(element => !(element.day === day && element.year === year && element.month === month && time === element.hour))
     return result
+  }
  }
 
  function displayInfo(e) {
@@ -32,7 +34,7 @@ function Times(props) {
 return (
  
  <div className="times">
-   {time.map((times, index) => { if (filterTimes(times,props,appointments))
+   {time.map((times, index) => { if (filterTimes(times,date,appointments))
    {
     return ( 
       <div key={index}>
@@ -47,7 +49,7 @@ return (
         )}
      })}
     <div>
-      <Model open={isOpen} onClose={() => setIsOpen(false)} props={props} event={event}/>
+      <Model open={isOpen} onClose={() => setIsOpen(false)} props={date} event={event}/>
     </div>
  </div>
   )

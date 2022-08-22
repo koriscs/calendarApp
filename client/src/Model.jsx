@@ -36,7 +36,7 @@ export default function Model({open, props, onClose, event}) {
     const onSubmit = async (e) =>{
         e.preventDefault()
         const {email, name} = values;
-        const date = props.date.toString().split(' ');
+        const date = props.toString().split(' ');
         const  data= {
             email,
             name,
