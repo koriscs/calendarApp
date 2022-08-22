@@ -12,6 +12,7 @@ function CalendarApp() {
  const disptach = useDispatch();
  let month = getMonth(date);
 
+
  useEffect(()=>{
     
    disptach(fetchAppointments(month));
@@ -20,7 +21,9 @@ function CalendarApp() {
 return (
  <div className="app">
    <div className="calendar-container">
-     <Calendar onChange={setDate} value={date} onClickDay={() => setShowTime(true)}/>
+     <Calendar tileDisabled={({ date, view }) =>
+          (view === "month" && date.getDay() === 0) || date.getDay() === 6
+        } locale='hu-HU' onChange={setDate} value={date} onClickDay={() => setShowTime(true)}/>
    </div>
    {date.length > 0 ? (
    <p>

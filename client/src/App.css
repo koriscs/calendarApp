@@ -23,17 +23,7 @@
   font-size: 3rem;
   color: white;
 }
-/*
-.nav-header:before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0;
-  top: 0; bottom: 0;
-  background: rgba(254, 255, 220, 0.5);
-  height: 25rem;
-  width: 100%;
-}
-*/
+
 /*   Content    */
 
 .hero {
@@ -58,14 +48,7 @@
   margin-top: -15rem;
 }
 /*    Footer     */
-/*
-.footer {
-  background-image: url("https://i.ibb.co/ThL2DHq/footer.jpg");
-  background-position: center;
-  background-size: cover;
-  height: 12rem;
-}
-*/
+
 /* react calendar */
 
 
