@@ -20,7 +20,7 @@ app.use(
        helmet.contentSecurityPolicy({
          useDefaults: true,
          directives: {
-            imgSrc: ["'self'", "https://i.ibb.co" ],
+            imgSrc: ["'self'", "https://i.ibb.com" ],
          }
        })
      )
