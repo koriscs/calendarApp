@@ -48,5 +48,6 @@ export const calendarSlice = createSlice({
         },
     }
 })
+export const selectAppointments = state => state.calendar.appointments;
 
 export default calendarSlice.reducer

@@ -19,7 +19,9 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, calendarReducer)
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer:{
+    calendar: persistedReducer
+  } ,
   middleware: getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
