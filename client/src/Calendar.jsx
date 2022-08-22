@@ -21,9 +21,17 @@ function CalendarApp() {
 return (
  <div className="app">
    <div className="calendar-container">
-     <Calendar tileDisabled={({ date, view }) =>
+     <Calendar 
+     tileDisabled={({ date, view }) =>
           (view === "month" && date.getDay() === 0) || date.getDay() === 6
-        } locale='hu-HU' onChange={setDate} value={date} onClickDay={() => setShowTime(true)}/>
+        }
+        showNeighboringMonth={false} 
+        locale='hu-HU' 
+        onChange={setDate} 
+        value={date}
+        minDetail="month"
+        minDate={new Date()} 
+        onClickDay={() => setShowTime(true)}/>
    </div>
    {date.length > 0 ? (
    <p>
