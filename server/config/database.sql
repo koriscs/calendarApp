@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS "calendar" (
  "year" VARCHAR,
  "hour" VARCHAR,
  "name" VARCHAR,
+ "email" VARCHAR,
  "time" TIMESTAMP
 );
