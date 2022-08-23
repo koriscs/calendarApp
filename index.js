@@ -20,9 +20,9 @@ app.use(
        helmet.contentSecurityPolicy({
          useDefaults: true,
          directives: {
-            imgSrc: ["'self'", "https://i.ibb.co" ],
-            frameSrc: ["'self'","https://i.ibb.co"],
-            connectSrc: ["'self'","https://i.ibb.co"]
+            imgSrc: ["'self'", "https://i.ibb.co/TrxmdcM/woman.jpg" ],
+            frameSrc: ["'self'","https://i.ibb.co/TrxmdcM/woman.jpg"],
+            connectSrc: ["'self'","https://i.ibb.co/TrxmdcM/woman.jpg"]
          }
        })
      )
