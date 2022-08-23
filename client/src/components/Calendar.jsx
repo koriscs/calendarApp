@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
 import Calendar from 'react-calendar'; 
-import './App.css';
+import '../App.css';
 import Time from './Time.jsx'
-import {fetchAppointments} from './features/calendarSlice'
-import { getMonth, isSameDay } from './utils/utils'
+import {fetchAppointments} from '../features/calendarSlice'
+import { getMonth, isSameDay } from '../utils/utils'
 import { useDispatch } from 'react-redux'
 
 const disabledDates = ["Oct 31 2022","Nov 01 2022","Dec 26 2022"]
@@ -51,7 +51,7 @@ return (
    </p>
           ) : (
    <p>
-      <span>Default selected date:</span>{date.toDateString()}
+      <span>Elérhető időpontok!</span>
    </p> 
           )
    }

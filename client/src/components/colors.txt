@@ -1,0 +1,7 @@
+HEX: #d5f4e6
+
+HEX: #80ced6
+
+HEX: #fefbd8
+
+HEX: #618685

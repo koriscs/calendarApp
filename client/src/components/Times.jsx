@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import {useState} from 'react';
-import './App.css';
+import '../App.css';
 import Model from './Model';
 import { useSelector } from 'react-redux';
-import { selectAppointments } from './features/calendarSlice';
-import { getDay, getMonth, getYear } from './utils/utils';
+import { selectAppointments } from '../features/calendarSlice';
+import { getDay, getMonth, getYear } from '../utils/utils';
 
 const time = ['08:00','09:00','10:00','14:00','15:00']
 
@@ -19,10 +19,12 @@ function Times({date}) {
     const day = getDay(date)
     const year = getYear(date)
     const month = getMonth(date)
-  if (appointments) {
+  if (!appointments.length) {
+    return true;
+  }
     const result = appointments.every(element => !(element.day === day && element.year === year && element.month === month && time === element.hour))
     return result
-  }
+
  }
 
  function displayInfo(e) {
@@ -43,8 +45,9 @@ return (
           )
    } else {
     return ( 
-    <div key={index}>
+    <div className='foglalt' key={index}>
       <button style={{color: "red"}} onClick={(e)=> displayInfo(e)} disabled> {times} </button>
+      <span>Foglalt!</span>
     </div>
         )}
      })}

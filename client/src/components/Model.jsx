@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { addAppointment } from './features/calendarSlice';
+import { addAppointment } from '../features/calendarSlice';
 import { useDispatch } from 'react-redux';
 
 const MODAL_STYLES = {
