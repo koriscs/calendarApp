@@ -19,7 +19,7 @@ app.use(
        helmet.contentSecurityPolicy({
          useDefaults: true,
          directives: {
-            // imgSrc: ["'self'", "https://i.ibb.co/TrxmdcM/woman.jpg" ]
+            imgSrc: ["'self'", "https://i.ibb.co/TrxmdcM/woman.jpg" ]
          },
          reportOnly: false,
        })
